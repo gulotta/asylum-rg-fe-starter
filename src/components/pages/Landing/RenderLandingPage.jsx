@@ -1,14 +1,15 @@
 import React from 'react';
 // ADD IMPORTS BACK FOR GRAPHS SECTION
-// import GrantRatesByOfficeImg from '../../../styles/Images/bar-graph-no-text.png';
-// import GrantRatesByNationalityImg from '../../../styles/Images/pie-chart-no-text.png';
-// import GrantRatesOverTimeImg from '../../../styles/Images/line-graph-no-text.png';
+import GrantRatesByOfficeImg from '../../../styles/Images/bar-graph-no-text.png';
+import GrantRatesByNationalityImg from '../../../styles/Images/pie-chart-no-text.png';
+import GrantRatesOverTimeImg from '../../../styles/Images/line-graph-no-text.png';
+
 import HrfPhoto from '../../../styles/Images/paper-stack.jpg';
 import '../../../styles/RenderLandingPage.less';
 import { Button } from 'antd';
 import { useHistory } from 'react-router-dom';
 // for the purposes of testing PageNav
-// import PageNav from '../../common/PageNav';
+import PageNav from '../../common/PageNav';
 
 function RenderLandingPage(props) {
   const scrollToTop = () => {
@@ -31,8 +32,26 @@ function RenderLandingPage(props) {
         </div>
       </div>
 
-      {/* Graphs Section: Add code here for the graphs section for your first ticket */}
-      {/* <div className="graphs-section"> */}
+      <div className="graphs-section">
+        <div className="by-office">
+          <img src={GrantRatesByOfficeImg} alt="Grant Rates By Office"></img>
+          <div className="text1">Search Grant Rates By Office</div>
+        </div>
+
+        <div className="by-nat">
+          <img
+            src={GrantRatesByNationalityImg}
+            alt="Grant Rates By Nationality"
+          ></img>
+          <div className="text2">Search Grant Rates By Nationality</div>
+        </div>
+
+        <div className="over-time">
+          <img src={GrantRatesOverTimeImg} alt="Grant Rates Over Time"></img>
+          <div className="text3">Search Grant Rates Over Time</div>
+        </div>
+      </div>
+
       <div className="view-more-data-btn-container">
         <Button
           type="default"
@@ -40,6 +59,13 @@ function RenderLandingPage(props) {
           onClick={() => history.push('/graphs')}
         >
           View the Data
+        </Button>
+        <Button
+          type="default"
+          style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+          onClick={() => history.push('/graphs')}
+        >
+          Download the Data
         </Button>
       </div>
 
@@ -60,8 +86,45 @@ function RenderLandingPage(props) {
         </div>
       </div>
       <div>
-        {/* Bottom Section: Add code here for the graphs section for your first ticket */}
-        {/* <div className="bottom-section">*/}
+        <div className="bottom-section">
+          <div className="bottom-h1">
+            <h1>Systemic Disparity Insights</h1>
+          </div>
+          <div className="data-container">
+            <div className="first-data-point-container">
+              <h1>36%</h1>
+              <p>
+                By the end of the Trump administration, the average asylum
+                office grant rate had fallen 36 percent from an average of 44
+                percent in the fiscal year 2016 to 28 percent in fiscal year
+                2020.
+              </p>
+            </div>
+
+            <div className="second-data-point-container">
+              <h1>5%</h1>
+              <p>
+                The New York asylum office grant rate dropped to 5 percent in
+                fiscal year 2020
+              </p>
+            </div>
+
+            <div className="third-data-point-container">
+              <h1>6x Lower</h1>
+              <p>
+                Between fiscal year 2017 and 2020, the New York asylum office's
+                average grant rate was six times lower than the San Francisco
+                asylum office.
+              </p>
+            </div>
+          </div>
+          <Button
+            type="default"
+            style={{ backgroundColor: '#404C4A', color: '#FFFFFF' }}
+          >
+            Read More
+          </Button>
+        </div>
         <p onClick={() => scrollToTop()} className="back-to-top">
           Back To Top ^
         </p>
