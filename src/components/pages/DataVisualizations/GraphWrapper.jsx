@@ -52,34 +52,14 @@ function GraphWrapper(props) {
         break;
     }
   }
+  /* Ticket 2 changes below **/
+
   async function updateStateWithNewData(
     years,
     view,
     office,
     stateSettingCallback
   ) {
-    /*
-          _                                                                             _
-        |                                                                                 |
-        |   Example request for once the `/summary` endpoint is up and running:           |
-        |                                                                                 |
-        |     `${url}/summary?to=2022&from=2015&office=ZLA`                               |
-        |                                                                                 |
-        |     so in axios we will say:                                                    |
-        |                                                                                 |     
-        |       axios.get(`${url}/summary`, {                                             |
-        |         params: {                                                               |
-        |           from: <year_start>,                                                   |
-        |           to: <year_end>,                                                       |
-        |           office: <office>,       [ <-- this one is optional! when    ]         |
-        |         },                        [ querying by `all offices` there's ]         |
-        |       })                          [ no `office` param in the query    ]         |
-        |                                                                                 |
-          _                                                                             _
-                                   -- Mack 
-    
-    */
-
     if (office === 'all' || !office) {
       const fiscalSummary = await axios.get(`${url}/fiscalsummary`, {
         params: {
@@ -119,6 +99,9 @@ function GraphWrapper(props) {
       stateSettingCallback(view, office, [fiscalSummary.data]);
     }
   }
+
+  /* Ticket 2 changes above **/
+
   const clearQuery = (view, office) => {
     dispatch(resetVisualizationQuery(view, office));
   };
