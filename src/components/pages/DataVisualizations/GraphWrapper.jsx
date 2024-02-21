@@ -52,7 +52,7 @@ function GraphWrapper(props) {
         break;
     }
   }
-  /* Ticket 2 changes below **/
+  /* Ticket 2 changes below vv **/
 
   async function updateStateWithNewData(
     years,
@@ -100,7 +100,7 @@ function GraphWrapper(props) {
     }
   }
 
-  /* Ticket 2 changes above **/
+  /* Ticket 2 changes above ^^ **/
 
   const clearQuery = (view, office) => {
     dispatch(resetVisualizationQuery(view, office));
