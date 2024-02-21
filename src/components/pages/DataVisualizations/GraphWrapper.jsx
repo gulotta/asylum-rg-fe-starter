@@ -76,8 +76,6 @@ function GraphWrapper(props) {
       });
 
       fiscalSummary.data['citizenshipResults'] = citizenshipSummary.data;
-
-      console.log(fiscalSummary.data);
       stateSettingCallback(view, office, [fiscalSummary.data]);
     } else {
       const fiscalSummary = await axios.get(`${url}/fiscalsummary`, {
@@ -95,7 +93,6 @@ function GraphWrapper(props) {
         },
       });
       fiscalSummary.data['citizenshipResults'] = citizenshipSummary.data;
-      console.log(fiscalSummary.data);
       stateSettingCallback(view, office, [fiscalSummary.data]);
     }
   }
