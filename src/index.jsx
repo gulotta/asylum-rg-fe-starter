@@ -10,12 +10,13 @@ import {
 import 'antd/dist/antd.less';
 import { NotFoundPage } from './components/pages/NotFound';
 import { LandingPage } from './components/pages/Landing';
+import { Profile } from './components/common/Profile.jsx';
 
 import Auth0ProviderWithHistory from './auth/auth0-provider-with-history';
 
 import { FooterContent, SubFooter } from './components/Layout/Footer';
 import { HeaderContent } from './components/Layout/Header';
-import {useAuth0} from '@auth0/auth0-react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 // import { TablePage } from './components/pages/Table';
 
@@ -44,7 +45,7 @@ ReactDOM.render(
 
 export function App() {
   const { Footer, Header } = Layout;
-  const {isAuthenticated} = useAuth0();
+  const { isAuthenticated } = useAuth0();
 
   return (
     <Layout>
@@ -61,11 +62,8 @@ export function App() {
       <Switch>
         <Route path="/" exact component={LandingPage} />
         <Route path="/graphs" component={GraphsContainer} />
+        {isAuthenticated && <Route path="/profile" component={Profile} />}
         <Route component={NotFoundPage} />
-
-        {isAuthenticated && (
-          <Route path='/profile' component={Profile} />
-        )}
       </Switch>
       <Footer
         style={{
