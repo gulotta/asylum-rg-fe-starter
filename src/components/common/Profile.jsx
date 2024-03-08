@@ -14,7 +14,11 @@ export const Profile = () => {
             src={picture}
             alt="Profile"
             className="rounded-circle img-fluid profile-picture mb-3 mb-md-0"
-            style={{ borderRadius: '50%', width: '200px', margin: '30px' }}
+            style={{
+              borderRadius: '50%',
+              width: '200px',
+              margin: '30px',
+            }}
           />
         </div>
         <div className="col-md text-center text-md-left">
